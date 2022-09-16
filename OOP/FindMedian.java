@@ -1,3 +1,6 @@
+// Code by bevatsal1122 (GitHub)
+// Trust God, Your Code Will Work
+
 import java.util.*;
 
 class MathOperation
@@ -17,15 +20,15 @@ class MathOperation
 
 class FindMedian {
    public static void main(String[] args) {
-      Scanner s = new Scanner(System.in);
-      System.out.print("\nEnter Length: "); int n = s.nextInt();
+      Scanner s=new Scanner(System.in);
+      System.out.print("\nEnter Length: "); int n=s.nextInt();
 		if (n<=0) {
 			System.out.print("Wrong Input!!");
 			return;
 		}
-		int a[] = new int [n];
+		int a[]=new int [n];
 		for (int i=0; i<n; ++i) {
-      	System.out.print("Enter Element " + i + ": "); int t = s.nextInt();
+      	System.out.print("Enter Element " + (int)(i+1) + ": "); int t=s.nextInt();
 			a[i]=t;
 		}
 	
