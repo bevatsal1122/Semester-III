@@ -1,3 +1,6 @@
+// Code by bevatsal1122 (GitHub)
+// Trust God, Your Code Will Work
+
 import java.util.*;
 
 class MyMath {
@@ -17,7 +20,7 @@ class MyMath {
 class Question2 {
    public static void main(String[] args) {
       Scanner s = new Scanner(System.in);
-      System.out.print("\nEnter Value of x: "); double x=s.nextInt();
+      System.out.print("\nEnter Value of x: "); double x=s.nextDouble();
       System.out.print("Enter Value of n: "); int n=s.nextInt();
       System.out.println("\nx = " + x);
       System.out.println("n = " + n);
