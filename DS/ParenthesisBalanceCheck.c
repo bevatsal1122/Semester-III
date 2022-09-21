@@ -11,7 +11,7 @@ struct node {
 };
 
 void push(struct node **start, char data) {
-   struct node *insertNode=malloc(sizeof(struct node));
+   struct node *insertNode=(struct node *)malloc(sizeof(struct node));
    insertNode->data=data;
    if (*start==NULL) insertNode->next=NULL;
    else insertNode->next=*start;
