@@ -85,13 +85,18 @@ int main()
 	cout<<"\t "<<q1<<"\t"<<n<<"\n";
 
 	while (n--) {
+		bool key=true;
 		if (q[3]==0 && q1==1) addBinary(a, m);
 		else if (q[3]==1 && q1==0) addBinary(a, m2);
+		else key=false;
 
-		for (int i=0; i<4; ++i) cout<<a[i];
-		cout<<"\t";
-		for (int i=0; i<4; ++i) cout<<q[i];
-		cout<<"\t "<<q1<<"\t"<<n+1<<"\n\n";
+		if (key) {
+			for (int i=0; i<4; ++i) cout<<a[i];
+			cout<<"\t";
+			for (int i=0; i<4; ++i) cout<<q[i];
+			cout<<"\t "<<q1<<"\t"<<n+1<<"\n\n";
+		}
+		else cout<<"\n";
 
 		arithmeticRightShift(a, q, &q1);
 
@@ -99,7 +104,6 @@ int main()
 		cout<<"\t";
 		for (int i=0; i<4; ++i) cout<<q[i];
 		cout<<"\t "<<q1<<"\t"<<n<<"\n";
-
 	}
 
 	int result[8] {};
