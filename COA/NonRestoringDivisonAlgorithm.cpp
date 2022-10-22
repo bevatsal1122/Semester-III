@@ -49,7 +49,7 @@ void leftShift(int a[], int q[]) {
 int main()
 {
 	int x, y;
-	cout<<"\nRestoring Division Algorithm for 4 Bits including Sign Bit\nRange: [-7, 7]\nEnter Dividend (Q): "; cin>>x;
+	cout<<"\nNon Restoring Division Algorithm for 4 Bits including Sign Bit\nRange: [-7, 7]\nEnter Dividend (Q): "; cin>>x;
 	cout<<"Enter Divisor (M): "; cin>>y;
 
 	if (x>=8 || y>=8 || x<0 || y<=0) {cout<<"\nOut of Scope!!\n"; return 0;}
@@ -76,15 +76,14 @@ int main()
 	cout<<"\t "<<n<<"\n";
 
    while (n--) {
-      leftShift(a, q);
-
-		for (int i=0; i<4; ++i) cout<<a[i];
-		cout<<"\t";
-		for (int i=0; i<3; ++i) cout<<q[i];
-		cout<<"_";
-		cout<<"\t "<<n+1<<"\n";
-
-      addBinary(a, m2);
+      if (a[0]==1) {
+         leftShift(a, q);
+         addBinary(a, m);
+      }
+      else if (a[0]==0) {
+         leftShift(a, q);
+         addBinary(a, m2);
+      }
 
 		for (int i=0; i<4; ++i) cout<<a[i];
 		cout<<"\t";
@@ -92,17 +91,16 @@ int main()
 		cout<<"_";
 		cout<<"\t "<<n+1<<"\n\n";
 
-		if (a[0]==1) {
-			q[3]=0;
-			addBinary(a, m);
-		}
-		else if (a[0]==0) q[3]=1;
+		if (a[0]==1) q[3]=0;
+		else if (a[1]==0) q[3]=1;
 
 		for (int i=0; i<4; ++i) cout<<a[i];
 		cout<<"\t";
 		for (int i=0; i<4; ++i) cout<<q[i];
 		cout<<"\t "<<n<<"\n";
    }
+
+   if (a[0]==1) addBinary(a, m);
 
 	cout<<"\n\nQuotient: (";
 	for (int i=0; i<4; ++i) cout<<q[i];
