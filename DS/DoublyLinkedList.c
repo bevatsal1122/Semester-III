@@ -64,7 +64,7 @@ void deleteAtEnd(struct node **start, struct node **end) {
 }
 
 void display(struct node *start) {
-   printf("\nCurrent Doubly Linked List- \n");
+   printf("\nCurrent Circular Doubly Linked List- \n");
    while (start!=NULL) {
       printf("%d ", start->data);
       start=start->next;
@@ -73,7 +73,7 @@ void display(struct node *start) {
 } 
 
 void revDisplay(struct node *end) {
-   printf("\nCurrent Doubly Linked List (Reversed)- \n");
+   printf("\nCurrent Circular Doubly Linked List (Reversed)- \n");
    while (end!=NULL) {
       printf("%d ", end->data);
       end=end->prev;
