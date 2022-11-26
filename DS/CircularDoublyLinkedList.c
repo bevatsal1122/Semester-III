@@ -9,17 +9,16 @@ struct node {
 };
 
 void pushAtStart(struct node **start, struct node **end, int data) {
-   struct node *insertNode=malloc(sizeof(struct node));
+   struct node *insertNode=(struct node *)malloc(sizeof(struct node));
    insertNode->data=data;
+   insertNode->prev=NULL;
    if (*start==NULL) {
-      insertNode->next=insertNode;
+      insertNode->next=NULL;
       *end=insertNode;
-      insertNode->prev=insertNode;
    }
    else {
       (*start)->prev=insertNode;
       insertNode->next=*start;
-      insertNode->prev=*end;
    }
    *start=insertNode;
 }
@@ -32,20 +31,27 @@ void deleteAtStart(struct node **start, struct node **end) {
       *end=NULL;
    }
    else {
-      (q->next)->prev=q->prev;
+      (q->next)->prev=NULL;
       *start=q->next;
    }
    free(q);
 }
 
 void pushAtEnd(struct node **start, struct node **end, int data) {
-   struct node *insertNode=malloc(sizeof(struct node));
+   struct node *insertNode=(struct node *)malloc(sizeof(struct node));
    insertNode->data=data;
-   struct node *q=*end;
-   insertNode->next=q->next;
-   if (q!=NULL) q->next=insertNode;
-   else *start=insertNode;
-   insertNode->prev=q;
+   struct node *q=*start;
+   if (q==NULL) {
+      *start=insertNode;
+      insertNode->prev=insertNode;
+      insertNode->next=insertNode;
+   }
+   else {
+      q=*end;
+      insertNode->prev=q;
+      q->next=insertNode;
+      insertNode->next=*start;
+   }
    *end=insertNode;
 }
 
@@ -57,7 +63,7 @@ void deleteAtEnd(struct node **start, struct node **end) {
       *end=NULL;
    }
    else {
-      (q->prev)->next=q->next;
+      (q->prev)->next=NULL;
       *end=q->prev;
    }
    free(q);
@@ -65,23 +71,25 @@ void deleteAtEnd(struct node **start, struct node **end) {
 
 void display(struct node *start, struct node *end) {
    printf("\nCurrent Doubly Linked List- \n");
-   while (start!=end) {
+   if (start==end && start!=NULL) printf("%d ", start->data);
+   else if (start!=NULL) {
+      while (start!=NULL && start!=end) {
+         printf("%d ", start->data);
+         start=start->next;
+      }
       printf("%d ", start->data);
-      start=start->next;
    }
-   if (end!=NULL) printf("%d", end->data);
    printf("\n");
 } 
 
-void revDisplay(struct node *start, struct node *end) {
+void revDisplay(struct node *end) {
    printf("\nCurrent Doubly Linked List (Reversed)- \n");
-   while (end!=start) {
+   while (end!=NULL) {
       printf("%d ", end->data);
       end=end->prev;
    }
-   if (start!=NULL) printf("%d", start->data);
    printf("\n");
-}
+} 
 
 int main()
 {
@@ -97,14 +105,14 @@ int main()
          printf("\nEnter Number: ");
          scanf("%d", &n);
          if (choice==1) pushAtStart(&top, &last, n);
-         else if (choice==3) pushAtEnd(&top, &last, n);
+         else if (choice==2) pushAtEnd(&top, &last, n);
          length++;
          display(top, last);
       }
       else if (choice==3) display(top, last);
-      else if (choice==4) revDisplay(top, last);
+      else if (choice==4) revDisplay(last);
       else if (choice==5 || choice==6) {
-         if (length<=0) printf("\nEmpty CDLL!!\n");
+         if (length<1) printf("\nEmpty CDLL!!\n");
          else {
             if (choice==5) deleteAtStart(&top, &last); 
             if (choice==6) deleteAtEnd(&top, &last); 
@@ -115,12 +123,11 @@ int main()
       printf("\nOptions-\n1. Insert Element at Start\n2. Insert Element at End\n3. Display CDLL\n4. Reverse Display CDLL\n5. Delete Element at Start\n6. Delete Element at End\n7. Exit\n\nChoice: ");
       scanf("%d", &choice);
    }
-   while (top!=last) {
+   while (top!=NULL) {
       struct node* q=top;
       top=top->next;
       free(q);
    }
-   free(top);
    printf("\nExiting...\n");
    return 0;
 }
