@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<string.h>
 
 struct node {
    struct node* prev;
@@ -70,7 +69,7 @@ void deleteAtEnd(struct node **start, struct node **end) {
 }
 
 void display(struct node *start, struct node *end) {
-   printf("\nCurrent Doubly Linked List- \n");
+   printf("\nCurrent Circular Doubly Linked List -\n");
    if (start==end && start!=NULL) printf("%d ", start->data);
    else if (start!=NULL) {
       while (start!=NULL && start!=end) {
@@ -83,7 +82,7 @@ void display(struct node *start, struct node *end) {
 } 
 
 void revDisplay(struct node *end) {
-   printf("\nCurrent Doubly Linked List (Reversed)- \n");
+   printf("\nCurrent Circular Doubly Linked List (Reversed) -\n");
    while (end!=NULL) {
       printf("%d ", end->data);
       end=end->prev;
@@ -123,10 +122,13 @@ int main()
       printf("\nOptions-\n1. Insert Element at Start\n2. Insert Element at End\n3. Display CDLL\n4. Reverse Display CDLL\n5. Delete Element at Start\n6. Delete Element at End\n7. Exit\n\nChoice: ");
       scanf("%d", &choice);
    }
-   while (top!=NULL) {
-      struct node* q=top;
-      top=top->next;
-      free(q);
+   if (top==last & top!=NULL) free(top);
+   else {
+      while (top!=last) {
+         struct node* q=top;
+         top=top->next;
+         free(q);
+      }
    }
    printf("\nExiting...\n");
    return 0;
