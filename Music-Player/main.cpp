@@ -79,16 +79,16 @@ string parsetoLength(string str, int length) {
 }
 
 void showSongsLists(struct node *start, struct node *end) {
-   cout<<"\n\nSong ID       Song Name \t\t  Author Name\t   Liked     Duration\n--------------------------------------------------------------------------------\n";
+   cout<<"\n\nSong ID       Song Name\t    \t Author Name\t   Liked     Duration\n--------------------------------------------------------------------------------\n";
    if (start==end && start!=NULL) {
-      cout<<"   "<<start->songID<<"   \t   "<<start->songName<<" \t "<<start->songAuthor<<"\t    "<<(start->liked ? "Yes\t        " : "No\t        ")<<start->songDuration<<"s\n"; 
+      cout<<"   "<<start->songID<<"   \t   "<<start->songName<<start->songAuthor<<"\t    "<<(start->liked ? "Yes\t        " : "No\t        ")<<start->songDuration<<"s\n"; 
    }
    else if (start!=NULL) {
       while (start!=NULL && start!=end) {
-         cout<<"   "<<start->songID<<"   \t   "<<start->songName<<" \t "<<start->songAuthor<<"\t    "<<(start->liked ? "Yes\t       " : "No\t       ")<<start->songDuration<<"s\n"; 
+         cout<<"   "<<start->songID<<"   \t   "<<start->songName<<start->songAuthor<<"\t    "<<(start->liked ? "Yes\t       " : "No\t       ")<<start->songDuration<<"s\n"; 
          start=start->next;
       }
-      cout<<"   "<<start->songID<<"   \t   "<<start->songName<<" \t "<<start->songAuthor<<"\t    "<<(start->liked ? "Yes\t       " : "No\t       ")<<start->songDuration<<"s\n";   
+      cout<<"   "<<start->songID<<"   \t   "<<start->songName<<start->songAuthor<<"\t    "<<(start->liked ? "Yes\t       " : "No\t       ")<<start->songDuration<<"s\n";   
    }
    printf("\n");
 }
@@ -125,9 +125,9 @@ int main()
    map<int, map<string, vector<int>>> playlists;
    int length=3, choice;
 
-   pushtoCDLL(&top, &last, 1, "Mai Hu Giyaan            ", "Takeshi Minamo", 180);
-   pushtoCDLL(&top, &last, 2, "Zindagi Savar Du         ", "Doremon       ", 210);
-   pushtoCDLL(&top, &last, 3, "Maan Meri Jaan           ", "King          ", 225);
+   pushtoCDLL(&top, &last, 1, "Mai Hu Giyaan        ", "Takeshi Minamo", 180);
+   pushtoCDLL(&top, &last, 2, "Zindagi Savar Du     ", "Doremon       ", 210);
+   pushtoCDLL(&top, &last, 3, "Maan Meri Jaan       ", "King          ", 225);
    showSongsLists(top, last);
 
    printf("\nOptions-\n1. Add Song \n2. Play a Song\n3. List all Songs\n4. List all Playlists\n5. Create a Playlist\n6. Enter into a Playlist\n7. Remove Song\n8. Like a Song\n9. Exit\n\nChoice: ");
