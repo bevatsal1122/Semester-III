@@ -15,7 +15,7 @@ struct node {
    string songAuthor;
    string playlists;
    bool liked;
-   int songDuration; // Song duration in Seconds
+   int songDuration; // songDuration in seconds
    struct node* next;
 };
 
@@ -26,14 +26,13 @@ void pushtoCDLL(struct node **start, struct node **end, int songID, string songN
    insertNode->songAuthor=songAuthor;
    insertNode->liked=false;
    insertNode->songDuration=songDuration;
-   struct node *q=*start;
+   struct node *q=*end;
    if (q==NULL) {
       *start=insertNode;
       insertNode->prev=insertNode;
       insertNode->next=insertNode;
    }
    else {
-      q=*end;
       insertNode->prev=q;
       q->next=insertNode;
       insertNode->next=*start;
@@ -128,7 +127,7 @@ int main()
 
    pushtoCDLL(&top, &last, 1, "Mai Hu Giyaan            ", "Takeshi Minamo", 180);
    pushtoCDLL(&top, &last, 2, "Zindagi Savar Du         ", "Doremon       ", 210);
-   pushtoCDLL(&top, &last, 3, "Maan meri jaan           ", "King          ", 225);
+   pushtoCDLL(&top, &last, 3, "Maan Meri Jaan           ", "King          ", 225);
    showSongsLists(top, last);
 
    printf("\nOptions-\n1. Add Song \n2. Play a Song\n3. List all Songs\n4. List all Playlists\n5. Create a Playlist\n6. Enter into a Playlist\n7. Remove Song\n8. Like a Song\n9. Exit\n\nChoice: ");
@@ -182,7 +181,7 @@ int main()
       else if (choice==4) {
          map<int, map<string, vector<int>>>::iterator itr;
          map<string, vector<int>>::iterator ptr;
-         cout<<"\nPlaylist ID\tPlaylist Name\t No. of Songs\n---------------------------------------------------------\n";
+         cout<<"\nPlaylist ID\tPlaylist Name\t  No. of Songs\n-----------------------------------------------------\n";
          for (itr = playlists.begin(); itr != playlists.end(); itr++) {
             for (ptr=itr->second.begin(); ptr!=itr->second.end(); ptr++) {
                   cout <<"     "<<(itr->first+1)<<"   \t  "<<ptr->first<<"\t"<<(ptr->second).size()<<"\n";
@@ -312,15 +311,19 @@ int main()
                q=q->next;
                if (q==top) break;
             }
+            cout<<q->songName<<"\n";
             if (q->liked) {
                int choice;
                cout<<"Song already liked. Dislike it ?? (1 for Yes, 0 for No)\nChoice - ";
                cin>>choice;
-               if (choice) q->liked=false;
+               if (choice) {
+                  q->liked=false;
+                  cout<<"Song disliked...\n";
+               }
             }
             else {
                q->liked=true;
-               cout<<q->songName<<"\nSong liked...\n";
+               cout<<"Song liked...\n";
             }
          }
       }
