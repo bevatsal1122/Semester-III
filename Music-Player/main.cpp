@@ -332,7 +332,7 @@ int main()
       cin>>choice;
    }
 
-   if (top==last & top!=NULL) free(top);
+   if (top==last && top!=NULL) free(top);
    else {
       while (top!=last) {
          struct node* q=top;
