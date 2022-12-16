@@ -1,3 +1,6 @@
+// Code by bevatsal1122 (GitHub)
+// Trust God, Your Code Will Work
+
 import java.util.*;
 
 class Employee {
@@ -43,7 +46,7 @@ class Question5 {
       System.out.print("Enter Employee ID: ");
       int id=sc.nextInt();
       while (hasEbyID(employees, id)!=-1) {
-         System.out.print("Employee with enetered ID already exists...\nEnter Employee ID: ");
+         System.out.print("Employee with entered ID already exists...\nEnter Employee ID: ");
          id=sc.nextInt();
       }
       System.out.print("Enter Employee Name: ");
