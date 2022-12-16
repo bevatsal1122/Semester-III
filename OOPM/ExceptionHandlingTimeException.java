@@ -41,7 +41,10 @@ class ExceptionHandlingTimeException {
             totalM=totalM%60;
             key=1;
          }
-         if (key==1) throw a;
+         if (key==1) {
+            s.close();  
+            throw a;
+         }
       } catch (TimeException e) {
          System.out.println(e.LimitException());
       }      

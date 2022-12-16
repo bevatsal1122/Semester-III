@@ -31,6 +31,7 @@ class Question7 {
          if (totalS>60) {
             totalM+=(int)(totalS/60);
             totalS=totalS%60;
+            s.close();
             throw new TimeException(m0, s0, m1, s1);
          }
          System.out.println("\nTotal Time (MM:SS) - "+totalM+":"+totalS);
@@ -38,6 +39,6 @@ class Question7 {
          System.out.println("Total Seconds: "+totalS);
       } catch (TimeException e) {
          e.printStackTrace();
-      }      
+      }
    }
 }

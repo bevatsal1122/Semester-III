@@ -27,6 +27,7 @@ class JaggedArrays3D {
          }
          System.out.println();
       }
+      s.close();
 
    }
 }

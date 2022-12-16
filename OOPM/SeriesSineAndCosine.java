@@ -38,5 +38,6 @@ class SeriesSineAndCosine {
       double sinValue=(double)(Math.round(sinx*10000))/10000, cosValue=(double)Math.round(cosx*10000)/10000;
       System.out.println("\nsin(" + d + "°) = sin(" + x + "rad) ≈ " + sinValue);
       System.out.println("cos(" + d + "°) = cos(" + x + "rad) ≈ " + cosValue);
+      s.close();
    }
 }

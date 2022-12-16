@@ -20,5 +20,6 @@ class GeneratePythogorianTriplets {
             }
          }
       }
+      s.close();
    }
 }

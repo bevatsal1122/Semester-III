@@ -15,5 +15,6 @@ class FindGCDRecursion {
       System.out.print("Enter Number 2: "); int b=s.nextInt();
       int gcd=findGCD(a, b);
       System.out.println("GCD: "+gcd);
+      s.close();  
    } 
 }

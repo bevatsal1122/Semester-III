@@ -24,6 +24,7 @@ class FindMedian {
       System.out.print("\nEnter Length: "); int n=s.nextInt();
 		if (n<=0) {
 			System.out.print("Wrong Input!!");
+			s.close();  
 			return;
 		}
 		int a[]=new int [n];
@@ -33,5 +34,6 @@ class FindMedian {
 		}
 	
 		System.out.print("\n\nMedian: " + MathOperation.findMedian(a, n) + "\n");
+		s.close();  
    }
 }

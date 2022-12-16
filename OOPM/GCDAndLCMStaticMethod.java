@@ -36,6 +36,7 @@ class GCDAndLCMStaticMethod {
       else {
          System.out.print("Wrong Option!!\n");
       }
+      s.close();
    }
 }
 
@@ -76,5 +77,6 @@ class GCDAndLCMStaticMethod {
 //       else {
 //          System.out.print("Wrong Option!!\n");
 //       }
+//       s.close();
 //    }
 // }

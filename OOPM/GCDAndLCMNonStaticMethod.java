@@ -39,5 +39,6 @@ class GCDAndLCMNonStaticMethod {
       else {
          System.out.print("Wrong Option!!\n");
       }
+      s.close();  
    }
 }

@@ -19,6 +19,7 @@ class CircleCircumferenceAndArea {
       Scanner s=new Scanner(System.in);
       System.out.println("\nOptions -\nEnter 1 for finding Circumference of Circle\nEnter 2 for finding Area of Circle");
       System.out.print("\nEnter Choice: "); int choice=s.nextInt();
+      s.close();
       if (choice!=1 && choice!=2) {
          System.out.println("Out of Range Option!!");
          return;

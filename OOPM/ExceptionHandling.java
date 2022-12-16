@@ -19,7 +19,10 @@ class ExceptionHandling {
             try {
          while (m>0) {
             int t=m%10;
-            if (t==0) throw a;
+            if (t==0) {
+               s.close();
+               throw a;
+            }
             m/=10;
          }
          System.out.println("\nThe Number doesn't contain digit 0.");
@@ -30,12 +33,16 @@ class ExceptionHandling {
       try {
          while (n>0) {
             int t=n%10;
-            if (t==9) throw a;
+            if (t==9) {
+               s.close();  
+               throw a;
+            }
             n/=10;
          }
          System.out.println("The Number doesn't contain digit 9.");
       } catch (MyException e) {
          System.out.println(e.containsNine());
-      }          
+      }
+      s.close();
    }
 }

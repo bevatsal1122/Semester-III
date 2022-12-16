@@ -4,6 +4,10 @@ class Student {
    int rollNumber;
    Student(int roll_number) {
       rollNumber=roll_number;
+   }
+   public Student() {
+   }
+   public void getMarks() {
    }   
 }
 
@@ -57,5 +61,6 @@ class Interface{
 
       Result r = new Result(test1, test2, rn);
       r.displayMarks();
+      sc.close();
    }
 }

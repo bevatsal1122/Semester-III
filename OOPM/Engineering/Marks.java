@@ -9,6 +9,7 @@ public class Marks {
                Engineering.Student newStudent=new Engineering.Student(s.get(j).roll, s.get(j).studentName, s.get(j).year, s.get(j).subject1, s.get(j).subject2, s.get(j).subject3, s.get(j).subject4);
                s.set(j, s.get(j+1));
                s.set(j+1, newStudent);
+               newStudent=null;
             }
          }
       }

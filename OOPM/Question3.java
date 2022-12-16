@@ -29,5 +29,6 @@ class Question3 {
          else average=(sum*1.0)/data[i].length;
          System.out.println("Player "+(int)(i+1)+" Average: "+average);
       }
+      s.close();
    }
 }

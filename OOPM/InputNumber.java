@@ -6,5 +6,6 @@ class InputNumber {
       System.out.print("Enter Number: ");
       int i = s.nextInt();
       System.out.println("The Number is " + i + ".");
+      s.close();
    }
 }

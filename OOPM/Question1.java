@@ -36,7 +36,8 @@ class Question1 {
       System.out.println("\nOptions -\nEnter 1 for Addition\nEnter 2 for Subtraction\nEnter 3 for Multiplication\nEnter 4 for Division");
       System.out.print("\nEnter Choice: "); int choice=s.nextInt();
       if (choice>=5 || choice<=0) {
-         System.out.println("Out of Range Option!!");  
+         System.out.println("Out of Range Option!!"); 
+         s.close(); 
          return;
       }
       System.out.print("\nComplex Number 1: a + bi");
@@ -62,6 +63,7 @@ class Question1 {
          System.out.println("\nOperation: [("+a+")+("+b+")i] / "+"[("+c+")+("+d+")i]");
          System.out.println("Final Answer: "+op.divide());
       }
+      s.close();
    }
 }
 
@@ -119,6 +121,7 @@ class Question1 {
 //          System.out.println("\nOperation: [("+a+")+("+b+")i] / "+"[("+c+")+("+d+")i]");
 //          System.out.println("Final Answer: "+AllOperations.divide(a, b, c, d));
 //       }
+//       s.close();
 //    }
 // }
 

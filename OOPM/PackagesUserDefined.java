@@ -7,6 +7,7 @@ class PackagesUserDefined {
       Scanner s=new Scanner(System.in);   
       System.out.println(Factorial.fact(8));
       System.out.println(Power.cal_pow(8, 2));
+      s.close();
    }
 }
 

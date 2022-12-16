@@ -17,6 +17,7 @@ class MatrixMultiplication {
       }
       if (n1!=m2) {
          System.out.print("Matrix Multiplication not possible!!");
+         s.close();
          return;
       }
       int result[][]=new int[m1][n2];
@@ -36,5 +37,6 @@ class MatrixMultiplication {
          for (int j=0; j<n2; ++j) System.out.print(result[i][j]+" ");
          System.out.print("\n");
       }
+      s.close();
    }
 }

@@ -25,7 +25,7 @@ class Question2 {
       System.out.println("\nx = " + x);
       System.out.println("n = " + n);
 
-      double cosx=0, sinx=0, ex=0, xn=0;
+      double ex=0, xn=0;
       for (int i=0; i<n; ++i) {
          ex+=MyMath.power(x, i)/MyMath.fact(i);
          int multiplyn=1;
@@ -39,5 +39,6 @@ class Question2 {
 
       System.out.println("\ne^" + x + " ≈ " + ex);
       System.out.println("(1 + " + x + ")^" + n + " ≈ " + xn);
+      s.close();
    }
 }

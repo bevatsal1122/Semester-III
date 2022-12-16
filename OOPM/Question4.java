@@ -23,6 +23,7 @@ class Question4 {
       int n=s.nextInt(), key=-1, lastID=0;
       if (n==0) {
          System.out.print("No Customers...\n");
+         s.close();
          return;
       }
       Account data[]=new Account[n];
@@ -74,5 +75,6 @@ class Question4 {
          choice=s.nextInt();
       }
       System.out.print("\nExiting...\n");
+      s.close();
    }
 }

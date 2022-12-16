@@ -54,5 +54,6 @@ class HierarchicalInheritance {
       Employee2.bank_name();
       Employee2.employee_status();
       System.out.println();
+      s.close();
    }
 }
